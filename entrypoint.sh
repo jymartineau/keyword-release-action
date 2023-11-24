@@ -19,14 +19,24 @@ jq . < $EVENT_PATH
 # if keyword is found
 if jq '.commits[].message, .head_commit.message' < $EVENT_PATH | grep -i -q "$*";
 then
+    echo "DEBUG INFO"
     # do something
     VERSION=$(date +%F.%s)
+    echo "Version: $VERSION"
 
     DATA="$(printf '{"tag_name":"v%s",' $VERSION)"
-    DATA="${DATA} $(printf '"target_commitish":"master",')"
+    echo "Data after tag_name: $DATA"
+
+    DATA="${DATA} $(printf '"target_commitish":"main",')"
+    echo "Data after name: $DATA"
+
     DATA="${DATA} $(printf '"name":"v%s",' $VERSION)"
+    echo "Data after body: $DATA"
+
     DATA="${DATA} $(printf '"body":"Automated release based on keyword: %s",' "$*")"
     DATA="${DATA} $(printf '"draft":false, "prerelease":false}')"
+    echo "Final JSON Data: $DATA"
+    echo $DATA | jq .
 
     URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
 
