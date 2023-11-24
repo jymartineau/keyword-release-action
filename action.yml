@@ -1,0 +1,8 @@
+name: 'Keyword Releaser 2700'
+description: 'Creates releases based on a keyword'
+runs:
+   using: 'docker'
+   image: 'Dockerfile'
+branding:
+   icon: 'box'
+   color: 'orange'
