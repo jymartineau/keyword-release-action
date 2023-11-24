@@ -1,6 +1,6 @@
 # Keyword Releaser 2700
 
-made with :purple_heart: by ![GitHub Avatar](https://github.com/jymartineau.png)
+made with :purple_heart: by <img src="https://github.com/jymartineau.png" width="50" height="50" alt="GitHub Avatar">
 
 # GitHub Action to Create Releases Based on a Keyword
 The Keyword Releaser will create a release based on the keyword specified in the arguments.
